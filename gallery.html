@@ -185,6 +185,57 @@
             margin-bottom: 1rem;
         }
 
+        /* ===== НОВАЯ ЦЕНТРАЛЬНАЯ КНОПКА ===== */
+        .center-button-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 3rem auto;
+            padding: 1rem;
+        }
+
+        .btn-center-metal {
+            background: linear-gradient(135deg, #1e1d2e 0%, #0f0e1a 100%);
+            border: 2px solid #b8b8e0;
+            color: #f0f0ff;
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            padding: 1rem 2.5rem;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(180, 180, 220, 0.3), 0 8px 20px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+            backdrop-filter: blur(4px);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-center-metal i {
+            font-size: 1.5rem;
+            color: #e0e0ff;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-center-metal:hover {
+            background: linear-gradient(135deg, #2d2b44, #181724);
+            border-color: #ffffff;
+            box-shadow: 0 0 28px rgba(210, 210, 255, 0.6), 0 5px 15px rgba(0,0,0,0.6);
+            transform: scale(1.03);
+            color: white;
+        }
+
+        .btn-center-metal:hover i {
+            transform: translateX(6px);
+        }
+
+        .btn-center-metal:active {
+            transform: scale(0.98);
+        }
+        /* ===== КОНЕЦ НОВОЙ КНОПКИ ===== */
+
         footer {
             background: #030206;
             border-top: 1px solid #2b293c;
@@ -201,6 +252,10 @@
             }
             .hero-gallery h1 {
                 font-size: 2rem;
+            }
+            .btn-center-metal {
+                font-size: 1rem;
+                padding: 0.8rem 1.8rem;
             }
         }
     </style>
@@ -227,6 +282,13 @@
 
 <div class="gallery-section">
     <div class="gallery-grid" id="styleGallery"></div>
+
+    <!-- НОВАЯ ЦЕНТРАЛЬНАЯ КНОПКА - расположена посередине, очевидно рабочая -->
+    <div class="center-button-section">
+        <button id="actionCenterBtn" class="btn-center-metal">
+            <i class="fas fa-skull"></i> ПОЛУЧИТЬ ВДОХНОВЕНИЕ <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
 
     <div class="quote-block">
         <i class="fas fa-quote-left" style="margin-right: 10px; color: #c2c2e5;"></i> 
@@ -288,4 +350,39 @@
             const item = document.createElement('div');
             item.className = 'gallery-item';
             item.innerHTML = `
-                <img class="gallery-img" src="${style.img}" alt="${style.title}" loading="lazy" onerror="this.src='https
+                <img class="gallery-img" src="${style.img}" alt="${style.title}" loading="lazy" onerror="this.src='https://placehold.co/600x400/1e1d2a/cbcbe3?text=Metallum+Style'">
+                <div class="gallery-info">
+                    <h3><i class="fas fa-gripfire"></i> ${style.title}</h3>
+                    <p>${style.desc}</p>
+                </div>
+            `;
+            galleryContainer.appendChild(item);
+        });
+    }
+
+    // Делаем центральную кнопку РАБОЧЕЙ и очевидной
+    const centerBtn = document.getElementById('actionCenterBtn');
+    if (centerBtn) {
+        centerBtn.addEventListener('click', () => {
+            // Действие: показать всплывающее сообщение или плавно прокрутить к галерее
+            // Создаём эффект "живой" обратной связи
+            const galleryGrid = document.querySelector('.gallery-grid');
+            if (galleryGrid) {
+                galleryGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Дополнительно подсветка
+                const items = document.querySelectorAll('.gallery-item');
+                items.forEach((item, idx) => {
+                    item.style.transition = '0.2s';
+                    item.style.boxShadow = '0 0 0 2px #cbcbe5';
+                    setTimeout(() => {
+                        item.style.boxShadow = '';
+                    }, 800 + idx * 100);
+                });
+            }
+            // Также выводим уведомление для явного подтверждения
+            alert('✨ Металлическое вдохновение активировано! Скроллим к галерее стилей.');
+        });
+    }
+</script>
+</body>
+</html>
