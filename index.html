@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Metallum Visage | Пирсинг лица: тёмная эстетика</title>
-    <!-- Google Fonts: готический/средневековый шрифт + современный sans для читаемости -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (металлические иконки) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -26,14 +24,12 @@
             scroll-behavior: smooth;
         }
 
-        /* Готический акцент для заголовков */
         h1, h2, h3, .nav-links a, .hero-title, .card-title, .section-subtitle, .footer-logo {
             font-family: 'Cinzel', serif;
             letter-spacing: 0.03em;
             font-weight: 600;
         }
 
-        /* Металлические и серебряные акценты */
         .metal-border {
             border-bottom: 2px solid rgba(192, 192, 210, 0.5);
             box-shadow: 0 2px 8px rgba(200, 200, 220, 0.1);
@@ -52,6 +48,10 @@
             transition: all 0.25s ease;
             font-weight: 500;
             font-family: 'Cinzel', serif;
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            text-decoration: none;
         }
 
         .btn-metal:hover {
@@ -62,7 +62,6 @@
             transform: translateY(-2px);
         }
 
-        /* навигация */
         header {
             position: sticky;
             top: 0;
@@ -90,6 +89,14 @@
             background-clip: text;
             color: transparent;
             letter-spacing: 2px;
+        }
+
+        .logo a {
+            text-decoration: none;
+            background: inherit;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .nav-links {
@@ -126,7 +133,6 @@
             width: 100%;
         }
 
-        /* hero секция */
         .hero {
             min-height: 85vh;
             display: flex;
@@ -154,7 +160,6 @@
             color: #b5b5ca;
         }
 
-        /* секции */
         .section {
             padding: 5rem 2rem;
             max-width: 1300px;
@@ -188,7 +193,6 @@
             font-size: 1.1rem;
         }
 
-        /* карточки пирсинга */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -276,7 +280,6 @@
             margin: 1rem 0;
         }
 
-        /* рекомендации по уходу отдельная секция */
         .care-highlight {
             background: linear-gradient(145deg, #0e0d14, #07070c);
             border-radius: 48px;
@@ -313,7 +316,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* healing timeline */
         .timeline {
             display: flex;
             flex-wrap: wrap;
@@ -331,7 +333,6 @@
             border: 1px solid #3c3a4e;
         }
 
-        /* footer */
         footer {
             background: #050407;
             border-top: 1px solid #33313f;
@@ -341,7 +342,6 @@
             color: #8f8ea3;
         }
 
-        /* адаптив */
         @media (max-width: 780px) {
             .navbar {
                 flex-direction: column;
@@ -363,7 +363,6 @@
             }
         }
 
-        /* подложка для картинок если не загрузятся — эмодзи заглушка */
         img {
             background: #1f1e2a;
         }
@@ -373,11 +372,12 @@
 
 <header>
     <div class="navbar">
-        <div class="logo"><i class="fas fa-dragon"></i> METALLUM VISAGE</div>
+        <div class="logo"><a href="index.html"><i class="fas fa-dragon"></i> METALLUM VISAGE</a></div>
         <ul class="nav-links">
-            <li><a href="#piercings"><i class="fas fa-ring"></i> Виды</a></li>
-            <li><a href="#aftercare"><i class="fas fa-hand-sparkles"></i> Уход</a></li>
-            <li><a href="#healing"><i class="fas fa-clock"></i> Заживление</a></li>
+            <li><a href="index.html#piercings"><i class="fas fa-ring"></i> Виды</a></li>
+            <li><a href="index.html#aftercare"><i class="fas fa-hand-sparkles"></i> Уход</a></li>
+            <li><a href="index.html#healing"><i class="fas fa-clock"></i> Заживление</a></li>
+            <li><a href="gallery.html"><i class="fas fa-image"></i> Тёмная сталь</a></li>
         </ul>
     </div>
 </header>
@@ -387,21 +387,16 @@
         <div class="hero-content">
             <h1>Пирсинг лица<br>эстетика металла</h1>
             <p class="hero-sub">От бровей до скул — тёмная элегантность, индивидуальность и серебряный отблеск. Исследуй разновидности, правила ухода и путь к идеальному заживлению.</p>
-            <a href="#piercings" class="btn-metal" style="display: inline-block; padding: 0.8rem 2rem; border-radius: 60px; text-decoration: none;">открыть галерею <i class="fas fa-arrow-right"></i></a>
+            <a href="#piercings" class="btn-metal">открыть галерею <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
-    <!-- Секция видов пирсинга (фото, описание) -->
     <section id="piercings" class="section">
         <h2 class="section-title">✦ разновидности пирсинга ✦</h2>
         <div class="section-subtitle">металлические украшения, от классики до авангарда</div>
-        <div class="cards-grid" id="piercing-list">
-            <!-- Карточки будут динамически добавлены через JS для удобства поддержки, но можно и статикой.
-                 Сделаем через JS, чтобы структура была чистой и легко менять фото/описания. -->
-        </div>
+        <div class="cards-grid" id="piercing-list"></div>
     </section>
 
-    <!-- Рекомендации по уходу + процесс заживления -->
     <section id="aftercare" class="section">
         <h2 class="section-title">⚙️ ритуал ухода ⚙️</h2>
         <div class="section-subtitle">серебряная чистота и бережное восстановление</div>
@@ -410,22 +405,22 @@
                 <div class="care-block">
                     <i class="fas fa-water"></i>
                     <h3>Очищение</h3>
-                    <p>2 раза в день промывай прокол морской водой или антисептическим спреем без спирта. Избегай перекиси и агрессивных растворов.</p>
+                    <p>2 раза в день промывай прокол морской водой или антисептическим спреем без спирта.</p>
                 </div>
                 <div class="care-block">
                     <i class="fas fa-hand-peace"></i>
                     <h3>Руки прочь</h3>
-                    <p>Не прикасайся к украшению без необходимости, не прокручивай. Микротравмы замедляют заживление.</p>
+                    <p>Не прикасайся к украшению без необходимости, не прокручивай.</p>
                 </div>
                 <div class="care-block">
                     <i class="fas fa-bed"></i>
                     <h3>Сон & гигиена</h3>
-                    <p>В первое время спи на спине (для пирсинга ушей/лица). Сменяй наволочки каждые 2 дня, используй хлопок.</p>
+                    <p>Сменяй наволочки каждые 2 дня, используй хлопок.</p>
                 </div>
                 <div class="care-block">
                     <i class="fas fa-droplet"></i>
                     <h3>Увлажнение</h3>
-                    <p>Не используй косметику и жирные кремы в зоне прокола. Только легкие гипоаллергенные средства.</p>
+                    <p>Не используй косметику и жирные кремы в зоне прокола.</p>
                 </div>
             </div>
         </div>
@@ -435,101 +430,33 @@
         <h2 class="section-title">⏳ процесс заживления</h2>
         <div class="section-subtitle">от момента прокола до полной зрелости канала</div>
         <div class="timeline">
-            <div class="timeline-step"><i class="fas fa-hourglass-start fa-2x silver-text"></i><h3>1-2 недели</h3><p>Отек, покраснение, лимфа — норма. Продолжай очищение.</p></div>
-            <div class="timeline-step"><i class="fas fa-chart-line fa-2x silver-text"></i><h3>1-2 месяца</h3><p>Уменьшение чувствительности. Формирование фистулы, но ещё хрупко.</p></div>
-            <div class="timeline-step"><i class="fas fa-shield-halbed fa-2x silver-text"></i><h3>3-6 месяцев</h3><p>Большинство пирсингов (губа, нос, бровь) заживают. Нужен уход.</p></div>
-            <div class="timeline-step"><i class="fas fa-gem fa-2x silver-text"></i><h3>9-12+ месяцев</h3><p>Полное созревание (особенно хрящ носа, скулы). Можно менять украшения.</p></div>
+            <div class="timeline-step"><i class="fas fa-hourglass-start fa-2x silver-text"></i><h3>1-2 недели</h3><p>Отек, покраснение — норма.</p></div>
+            <div class="timeline-step"><i class="fas fa-chart-line fa-2x silver-text"></i><h3>1-2 месяца</h3><p>Уменьшение чувствительности.</p></div>
+            <div class="timeline-step"><i class="fas fa-shield-halbed fa-2x silver-text"></i><h3>3-6 месяцев</h3><p>Большинство пирсингов заживают.</p></div>
+            <div class="timeline-step"><i class="fas fa-gem fa-2x silver-text"></i><h3>9-12+ месяцев</h3><p>Полное созревание канала.</p></div>
         </div>
         <div class="badge-metal" style="margin-top: 2rem; text-align: center;">
-            <i class="fas fa-skull"></i> Важно: каждый организм индивидуален. При сильном воспалении — обратись к пирсеру.
+            <i class="fas fa-skull"></i> Важно: при сильном воспалении — обратись к пирсеру.
         </div>
     </section>
 </main>
 
 <footer>
     <div class="footer-logo" style="font-size: 1.3rem; margin-bottom: 0.5rem;">⚜️ Metallum Visage ⚜️</div>
-    <p>темная эстетика лица | изображения сгенерированы в стилизованной манере для демонстрации | вдохновение — готическая субкультура и body art</p>
-    <p><i class="fas fa-shield-alt"></i> всегда выбирай профессионального пирсера и качественные имплантаты (титан, сталь, ниобий)</p>
+    <p>темная эстетика лица | выбирай профессионального пирсера и качественный имплантат</p>
+    <p><a href="gallery.html" style="color:#b0b0d0; text-decoration:none;">→ Галерея «Тёмная сталь» ←</a></p>
 </footer>
 
 <script>
-    // Данные о видах пирсинга: название, описание, фото (используем качественные стоковые Unsplash или релевантные изображения по теме пирсинга лица, но чтобы не нарушать — добавим атмосферные фото с высоким разрешением, имитирующие реальные пирсинги)
-    // Для реальности используем Unsplash ID и тематику "face piercing" но с безопасными ссылками на реальные фото.
-    // Используем фотографии с бесплатных ресурсов, подходящие под пирсинг: бровь, нос, септум, лабрет, скулы и т.д.
-    // Все изображения взяты с Pexels/Unsplash (свободная лицензия). В коде используем прямые ссылки, которые корректно отображают проколы лица.
     const piercingsData = [
-        {
-            name: "Септум",
-            icon: "fas fa-ring",
-            desc: "Пирсинг носовой перегородки — дерзкий и элегантный. Украшения из серебра, черного золота или титана подчеркивают анатомию.",
-            care: "Промывай солевым раствором 2 р/день, избегай сморкания с усилием.",
-            healing: "3-4 месяца до полного заживления, но канал формируется до полугода.",
-            img: "images/Септум 🍀.jfif",
-            alt: "септум пирсинг"
-        },
-        {
-            name: "Бровь",
-            icon: "fas fa-bolt",
-            desc: "Горизонтальный или вертикальный прокол брови. Придает взгляду выразительность и мистичность. Часто используют штанги с шипами.",
-            care: "Осторожно при умывании, избегай макияжа в зоне брови.",
-            healing: "2–3 месяца, но полная стабилизация до 4 мес.",
-            img: "images/Eyebrow piercing.jfif",
-            alt: "пирсинг брови"
-        },
-        {
-            name: "Лабрет (губа)",
-            icon: "fas fa-lips",
-            desc: "Прокол под нижней губой. Классическая вертикаль или смещенный вариант. Идеально смотрится с металлическими кольцами или labret stud.",
-            care: "После еды полощи рот антисептическим раствором без спирта. Без поцелуев первую неделю.",
-            healing: "от 6 до 8 недель, внутренняя сторона заживает быстрее.",
-            img: "images/загрузка (1).jfif",
-            alt: "лабрет пирсинг"
-        },
-        {
-            name: "Крыло носа (ноздри)",
-            icon: "fas fa-circle",
-            desc: "Самый популярный вид. Миниатюрные гвоздики, колечки с шипами или драгоценными камнями — универсальный выбор.",
-            care: "Аккуратно очищай вокруг украшения ватной палочкой. Не вынимай до заживления.",
-            healing: "4–6 месяцев, хотя внешне затягивается раньше.",
-            img: "https://images.pexels.com/photos/2570458/pexels-photo-2570458.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-            alt: "пирсинг ноздри"
-        },
-        {
-            name: "Бридж (переносица)",
-            icon: "fas fa-meteor",
-            desc: "Прокол на переносице, между глазами. Эффектный и смелый. Штанга с шариками создаёт футуристичный образ.",
-            care: "Важно избегать давления очков. Протирай мягко.",
-            healing: "3–5 месяцев, требует терпения.",
-            img: "https://images.pexels.com/photos/3279206/pexels-photo-3279206.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-            alt: "bridge piercing"
-        },
-        {
-            name: "Смайл (уздечка)",
-            icon: "fas fa-smile",
-            desc: "Прокол уздечки верхней губы. Украшение становится заметно при улыбке. Делается из тефлона или металла.",
-            care: "Гигиена полости рта, ирригатор. Проверять эмаль зубов.",
-            healing: "Быстро, 4-6 недель.",
-            img: "https://images.pexels.com/photos/2909297/pexels-photo-2909297.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-            alt: "smiley piercing"
-        },
-        {
-            name: "Щека (Димл)",
-            icon: "fas fa-face-grin-tongue-squint",
-            desc: "Пирсинг «ямочек» на щеках. Сложный в заживлении, но создает уникальный образ.",
-            care: "Специальные длинные штанги на время отёка. Соблюдать антибактериальную диету.",
-            healing: "до 6-9 месяцев.",
-            img: "https://images.pexels.com/photos/2661256/pexels-photo-2661256.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-            alt: "cheek piercing"
-        },
-        {
-            name: "Антибровь",
-            icon: "fas fa-moon",
-            desc: "Поверхностный пирсинг под скулой или в зоне верхней щеки. Микро-штанга с металлическими наконечниками.",
-            care: "Поверхностные пирсинги чувствительны к зацепкам, аккуратнее с одеждой.",
-            healing: "3–6 месяцев, но возможна миграция.",
-            img: "https://images.pexels.com/photos/4295196/pexels-photo-4295196.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
-            alt: "anti-eyebrow piercing"
-        }
+        { name: "Септум", icon: "fas fa-ring", desc: "Пирсинг носовой перегородки — дерзкий и элегантный.", care: "Промывай солевым раствором 2 р/день.", healing: "3-4 месяца до полного заживления.", img: "https://images.pexels.com/photos/2719827/pexels-photo-2719827.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", alt: "септум" },
+        { name: "Бровь", icon: "fas fa-bolt", desc: "Придает взгляду выразительность и мистичность.", care: "Осторожно при умывании, избегай макияжа.", healing: "2–3 месяца.", img: "https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", alt: "бровь" },
+        { name: "Лабрет", icon: "fas fa-lips", desc: "Прокол под нижней губой. Классика.", care: "Полощи рот антисептиком после еды.", healing: "6-8 недель.", img: "https://images.pexels.com/photos/3822813/pexels-photo-3822813.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", alt: "лабрет" },
+        { name: "Крыло носа", icon: "fas fa-circle", desc: "Универсальный выбор, гвоздики и кольца.", care: "Очищай вокруг украшения ватной палочкой.", healing: "4–6 месяцев.", img: "https://images.pexels.com/photos/2570458/pexels-photo-2570458.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", alt: "ноздря" },
+        { name: "Бридж", icon: "fas fa-meteor", desc: "Прокол на переносице. Эффектный.", care: "Избегай давления очков.", healing: "3–5 месяцев.", img: "https://images.pexels.com/photos/3279206/pexels-photo-3279206.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", alt: "бридж" },
+        { name: "Смайл", icon: "fas fa-smile", desc: "Прокол уздечки верхней губы.", care: "Гигиена полости рта.", healing: "4-6 недель.", img: "https://images.pexels.com/photos/2909297/pexels-photo-2909297.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", alt: "смайл" },
+        { name: "Щека", icon: "fas fa-face-grin-tongue-squint", desc: "Пирсинг «ямочек» на щеках.", care: "Длинные штанги на время отёка.", healing: "до 9 месяцев.", img: "https://images.pexels.com/photos/2661256/pexels-photo-2661256.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", alt: "щека" },
+        { name: "Антибровь", icon: "fas fa-moon", desc: "Поверхностный пирсинг под скулой.", care: "Аккуратнее с одеждой.", healing: "3–6 месяцев.", img: "https://images.pexels.com/photos/4295196/pexels-photo-4295196.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", alt: "антибровь" }
     ];
 
     const container = document.getElementById('piercing-list');
@@ -537,41 +464,24 @@
         piercingsData.forEach(p => {
             const card = document.createElement('div');
             card.className = 'piercing-card';
-            // Фотография (используем изображение, если ссылка битая - будет фолбек, но pexels стабильны)
             card.innerHTML = `
-                <img class="card-img" src="${p.img}" alt="${p.alt}" loading="lazy" onerror="this.src='https://placehold.co/600x400/1e1d2a/cbcbe3?text=Metallum+Visage'">
+                <img class="card-img" src="${p.img}" alt="${p.alt}" loading="lazy" onerror="this.src='https://placehold.co/600x400/1e1d2a/cbcbe3?text=Metallum'">
                 <div class="card-content">
-                    <div class="card-title">
-                        <i class="${p.icon}"></i> ${p.name}
-                    </div>
+                    <div class="card-title"><i class="${p.icon}"></i> ${p.name}</div>
                     <p class="description">${p.desc}</p>
                     <hr>
                     <div><i class="fas fa-hand-sparkles silver-text"></i> <strong>Уход:</strong>
-                        <ul class="care-list">
-                            <li><i class="fas fa-check-circle"></i> ${p.care}</li>
-                        </ul>
+                        <ul class="care-list"><li><i class="fas fa-check-circle"></i> ${p.care}</li></ul>
                     </div>
                     <div><i class="fas fa-hourglass-half silver-text"></i> <strong>Заживление:</strong>
-                        <ul class="healing-list">
-                            <li><i class="fas fa-calendar-week"></i> ${p.healing}</li>
-                        </ul>
+                        <ul class="healing-list"><li><i class="fas fa-calendar-week"></i> ${p.healing}</li></ul>
                     </div>
-                    <div class="badge-metal">
-                        <i class="fas fa-gem"></i> Рекомендованный металл: хирургическая сталь / титан / серебро 925
-                    </div>
+                    <div class="badge-metal"><i class="fas fa-gem"></i> Металл: титан / сталь / серебро</div>
                 </div>
             `;
             container.appendChild(card);
         });
     }
-
-    // доп. сообщение для консоли — динамичность создана
-    console.log("Metallum Visage — тёмная эстетика загружена");
 </script>
-<!-- 
-    Примечание: использованы изображения с Pexels по тематике портретов с пирсингом, 
-    что максимально соответствует теме. Все изображения публично доступны. 
-    Дизайн включает металлические акценты, готический шрифт Cinzel.
--->
 </body>
 </html>
